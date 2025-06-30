@@ -1,5 +1,7 @@
 # dependencies
 /node_modules
+/client/node_modules
+/server/node_modules
 /.pnp
 .pnp.js
 
@@ -8,6 +10,7 @@
 
 # production
 /build
+/client/build
 
 # misc
 .DS_Store
@@ -16,13 +19,15 @@
 .env.development.local
 .env.test.local
 .env.production.local
+/client/.env
+/server/.env
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# IDE specific files
-.idea
-.vscode
+# IDE
+.idea/
+.vscode/
 *.swp
 *.swo 
