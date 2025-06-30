@@ -1,7 +1,6 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
-const { MONGODB_URI, PORT } = require('./config/keys');
+const { PORT } = require('./config/keys');
 const aiRoutes = require('./routes/aiRoutes');
 require('dotenv').config();
 const { sendEmail, formatContactEmail } = require('./utils/emailHelper');
@@ -12,11 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Connect to MongoDB
-mongoose.connect(MONGODB_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
 app.use('/api/ai', aiRoutes);
@@ -37,9 +31,6 @@ app.post('/api/contact', async (req, res) => {
     // Format and send email
     const mailOptions = formatContactEmail(req.body);
     await sendEmail(mailOptions);
-
-    // Store in database (if needed)
-    // await storeContactSubmission(req.body);
 
     res.status(200).json({
       success: true,
