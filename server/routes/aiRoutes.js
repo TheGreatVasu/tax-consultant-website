@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { generateAIResponse, getChatHistory } = require('../controllers/aiController');
-const { authenticateToken } = require('../middleware/auth');
 
 // Generate AI response
-router.post('/generate', authenticateToken, generateAIResponse);
+router.post('/generate', generateAIResponse);
 
 // Get chat history
-router.get('/history', authenticateToken, getChatHistory);
+router.get('/history', getChatHistory);
 
 module.exports = router; 
