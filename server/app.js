@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const { PORT } = require('./config/keys');
 const aiRoutes = require('./routes/aiRoutes');
 require('dotenv').config();
 const { sendEmail, formatContactEmail } = require('./utils/emailHelper');
@@ -57,11 +56,6 @@ app.use((err, req, res, next) => {
         error: 'Something went wrong!',
         details: process.env.NODE_ENV === 'development' ? err.message : undefined
     });
-});
-
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;
