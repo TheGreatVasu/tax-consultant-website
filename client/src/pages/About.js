@@ -104,7 +104,7 @@ const team = [
     position: 'Proprietor and Founder',
     image: '/images/team/parth-rastogi.jpg',
     location: 'Delhi NCR',
-    education: 'Chartered Accountant',
+    education: 'Tax Litigator',
     description: 'Leading expert in taxation and business compliance with extensive experience in handling complex financial matters for diverse clients across Delhi NCR.',
     specializations: [
       'Direct & Indirect Taxation',

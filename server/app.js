@@ -6,8 +6,20 @@ const { sendEmail, formatContactEmail } = require('./utils/emailHelper');
 
 const app = express();
 
+// CORS configuration
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://tax-consultant-website.vercel.app',
+    process.env.FRONTEND_URL // For custom domain
+  ].filter(Boolean), // Remove null/undefined values
+  methods: ['GET', 'POST'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
